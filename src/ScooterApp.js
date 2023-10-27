@@ -70,7 +70,27 @@ class ScooterApp {
 
     console.log("Scooter is docked.")
   }
- 
+  //dock a rented scooter to an exisitng station
+  rentScooter(scooter, user) {
+    if(scooter.user) {
+      throw new Error("Scooter is already rented.");
+    }
+
+    let stationName = null;
+    for (const station in this.stations) {
+      if (this.stations[station].includes(scooter)) {
+        stationName = station;
+        break;
+      }
+      if (stationName) {
+        scooter.user = username;
+        this.stations[stationName] = this.stations[stationName].filter((s) => s !== scooter);
+        console.log("Scooter is rented.");
+      } 
+    }
+    
+  }
+
   
 
 
