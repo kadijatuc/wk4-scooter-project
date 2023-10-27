@@ -10,6 +10,7 @@ class ScooterApp {
     }
     this.registeredUsers = {};
   }
+
     //method for new users to register if > 18
   registerUser(username, password, age) {
     if (this.registeredUsers[username]) {
@@ -20,6 +21,7 @@ class ScooterApp {
       throw new Error("User is too young to register.");
     }
   }
+
   //locate registered user by name and log in
   loginUser (username, password) {
     const user = this.registeredUsers[username];
@@ -30,7 +32,7 @@ class ScooterApp {
       throw new Error ("Username or password is incorrect!")
     }
     //locate registered user by name and log out
-    logoutUser (username, password) {
+    logoutUser (username, password); {
       const user = this.registeredUsers[username];
 
       if (user) {
@@ -41,6 +43,34 @@ class ScooterApp {
       }
     }
   }
+
+  //when new scooters are deployed...
+  createScooter(station, charge, isBroken) {
+    if (!this.stations[station]) {
+      throw new Error("No such station.");
+    }
+
+    const newScooter = new Scooter(stationName, null, charge, isBroken);
+    this.stations[stationName].push(newScooter);
+    console.log("Created a new scooter.");
+    
+    return newScooter;
+
+  }
+
+  //check that scooter is docked
+  dockScooter(scooter, station) {
+    if (!stations[stationName]) {
+      throw new Error("No such station.");
+    }else if (this.stations[stationName].includes(scooter)){
+      throw new Error("Scooter is already at the station.");
+    }
+    this.stations[stationName].push(scooter);
+    scooter.station = stationName;
+
+    console.log("Scooter is docked.")
+  }
+ 
   
 
 

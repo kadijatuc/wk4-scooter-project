@@ -1,9 +1,9 @@
 //each scooter has these properties
 class Scooter{
-  constructor(station, user, serial, nextSerial, charge, isBroken) {
+  constructor(station, user, serial, charge, isBroken) {
     this.station = station;
     this.user = user;
-    this.serial = serial.nextSerial+1;
+    this.serial = serial.nextSerial++;
     this.nextSerial = 1;
     this.charge = charge;
     this.isBroken = isBroken;
@@ -24,6 +24,8 @@ class Scooter{
   }
 
 }
+const scooter1 = new Scooter("Station 2", null, 27, false);
+console.log("scooter1:", scooter1);
 
 
 module.exports = Scooter

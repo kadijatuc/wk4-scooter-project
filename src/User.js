@@ -21,4 +21,4 @@ const u1 = new User ("xyzy", "password1", 20);
 console.log("xyzy", u1);
 
 
-module.exports = Userß
+module.exports = User
